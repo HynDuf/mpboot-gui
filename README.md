@@ -2,6 +2,30 @@
 
 GUI for [mpboot](https://github.com/diepthihoang/mpboot) built by ElectronJs
 
+Table of contents:
+
+- [Set up development](#set-up-development)
+- [Used template](#used-template)
+  - [Features](#features)
+  - [How it works](#how-it-works)
+
+<a name="set-up-development"/>
+
+# Set up development
+- Clone and `cd` into the repository.
+- Run `yarn install` to install all the packages.
+- Run `yarn watch` to run the application in development mode.
+  - If you get errors like `Unknown version 122 of Chrome`, run `npx update-browserslist-db@latest` to update the browsers list.
+
+- Note: If you see errors like this: 
+```
+[43508:0412/064843.598920:ERROR:CONSOLE(2)] "Electron sandboxed_renderer.bundle.js script failed to run", source: node:electron/js2c/sandbox_bundle (2)
+[43508:0412/064843.598966:ERROR:CONSOLE(2)] "TypeError: object null is not iterable (cannot read property Symbol(Symbol.iterator))", source: node:electron/js2c/sandbox_bundle (2)
+```
+This is just React devtools error in electron (still an opened [issue](https://github.com/electron/electron/issues/41613)). Just do "View -> Reload", then in the sidebar there will be "Components" and "Profiler" tab (which is the react devtools) and then it should work as normal.
+
+<a name="used-template"/>
+
 # Used template
 
 This is a template for secure electron applications. Written following the latest safety requirements, recommendations
@@ -9,16 +33,18 @@ and best practices.
 
 Under the hood is [Vite] — A next-generation blazing fast bundler, and [electron-builder] for packaging.
 
+<a name="features"/>
+
 ## Features
 
-### Electron [![Electron version](https://img.shields.io/github/package-json/dependency-version/aqaurius6666/mpboot-gui/dev/electron?label=%20)][electron]
+### Electron [![Electron version](https://img.shields.io/github/package-json/dependency-version/HynDuf/mpboot-gui/dev/electron?label=%20)][electron]
 
 - This template uses the latest electron version with all the latest security patches.
 - The architecture of the application is built according to the
   security [guides](https://www.electronjs.org/docs/tutorial/security) and best practices.
 - The latest version of the [electron-builder] is used to package the application.
 
-### Vite [![Vite version](https://img.shields.io/github/package-json/dependency-version/aqaurius6666/mpboot-gui/dev/vite?label=%20)][vite]
+### Vite [![Vite version](https://img.shields.io/github/package-json/dependency-version/HynDuf/mpboot-gui/dev/vite?label=%20)][vite]
 
 - [Vite] is used to bundle all source codes. It's an extremely fast bundler, that has a vast array of amazing features.
   You can learn more about how it is arranged in [this](https://www.youtube.com/watch?v=xXrhg26VCSc) video.
@@ -31,14 +57,14 @@ Vite provides many useful features, such as: `TypeScript`, `TSX/JSX`, `CSS/JSON 
 
 > [See all Vite features](https://vitejs.dev/guide/features.html).
 
-### TypeScript [![TypeScript version](https://img.shields.io/github/package-json/dependency-version/aqaurius6666/mpboot-gui/dev/typescript?label=%20)][typescript] (optional)
+### TypeScript [![TypeScript version](https://img.shields.io/github/package-json/dependency-version/HynDuf/mpboot-gui/dev/typescript?label=%20)][typescript] (optional)
 
 - The latest version of TypeScript is used for all the source code.
 - **Vite** supports TypeScript out of the box. However, it does not support type checking.
 - Code formatting rules follow the latest TypeScript recommendations and best practices thanks
   to [@typescript-eslint/eslint-plugin](https://www.npmjs.com/package/@typescript-eslint/eslint-plugin).
 
-### React [![React version](https://img.shields.io/github/package-json/dependency-version/aqaurius6666/mpboot-gui/react?label=%20&)][React] (optional)
+### React [![React version](https://img.shields.io/github/package-json/dependency-version/HynDuf/mpboot-gui/react?label=%20&)][React] (optional)
 
 - Code formatting rules follow the latest React recommendations and best practices thanks to [eslint-plugin-react].
 
@@ -48,6 +74,9 @@ Vite provides many useful features, such as: `TypeScript`, `TSX/JSX`, `CSS/JSON 
   - Code signing supported. See [`release` workflow](.github/workflows/release.yml).
   - **Auto-update is supported**. After the release is published, all client applications will download the new version
   and install updates silently.
+
+<a name="how-it-works"/>
+
 ## How it works
 
 The template requires a minimum amount [dependencies](package.json). Only **Vite** is used for building, nothing more.
@@ -230,37 +259,3 @@ Only `VITE_SOME_KEY` will be exposed as `import.meta.env.VITE_SOME_KEY` to your 
 will not.
 
 You can change that prefix or add another. See [`envPrefix`](https://vitejs.dev/config/shared-options.html#envprefix)
-
-## Contribution
-
-See [Contributing Guide](contributing.md).
-
-
-[vite]: https://github.com/vitejs/vite/
-
-[electron]: https://github.com/electron/electron
-
-[electron-builder]: https://github.com/electron-userland/electron-builder
-
-[vue-router]: https://github.com/vuejs/vue-router-next/
-
-[typescript]: https://github.com/microsoft/TypeScript/
-
-[playwright]: https://playwright.dev
-
-[vitest]: https://vitest.dev
-
-[vue-tsc]: https://github.com/johnsoncodehk/vue-tsc
-
-[eslint-plugin-vue]: https://github.com/vuejs/eslint-plugin-vue
-
-[cawa-93-github]: https://github.com/cawa-93/
-
-[cawa-93-sponsor]: https://www.patreon.com/Kozack/
-
-[react]: https://github.com/facebook/react
-
-
-# Trouble shooting
-
-1. Install react devtool [URL](https://polypane.app/docs/downgrading-react-devtools/)
